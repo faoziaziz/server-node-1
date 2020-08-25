@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./styles.css";
 
-export default class App extends React.Component {
+class App extends React.Component {
   state = {
     users: [],
   };
@@ -36,3 +36,5 @@ export default class App extends React.Component {
     );
   }
 }
+
+export default App;

@@ -34,10 +34,16 @@ const options = {
 const specs =swaggerJsDoc(options);
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/mantan', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+
+/* Check for more */
+router.get("/apix", function(req, res, next){
+    res.send("hello world");
+
+});
 /* for swagger documentation */
 router.use("/docs", swaggerUi.serve);
 router.get("/docs", swaggerUi.setup(specs, { explorer: true }));

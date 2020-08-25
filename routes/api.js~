@@ -1,0 +1,21 @@
+var express = require('express');
+var router = express.Router();
+
+
+
+/* GET home page. */
+router.get('/mantan', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+
+
+/* Check for more */
+router.get("/apix", function(req, res, next){
+    res.send("hello world");
+
+});
+/* for swagger documentation */
+router.use("/docs", swaggerUi.serve);
+router.get("/docs", swaggerUi.setup(specs, { explorer: true }));
+
+module.exports = router;
