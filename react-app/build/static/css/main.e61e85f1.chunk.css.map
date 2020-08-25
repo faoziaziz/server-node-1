@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,KACE,qBAAsB,CACtB,cACF,CAEA,KACE,iBAAkB,CAClB,kBACF","file":"main.e61e85f1.chunk.css","sourcesContent":["body {\n  background-color: #ddd;\n  font-size: 20px;\n}\n\n.btn {\n  font-size: inherit;\n  margin-bottom: 10px;\n}\n"]}
