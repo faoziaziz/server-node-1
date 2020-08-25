@@ -1,3 +1,4 @@
+//const path=require("path")
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -20,9 +21,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use(express.static(path.join(__dirname,  "react-app/build")));
+app.use(express.static("public"));
+
 app.use('/users', usersRouter);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/api/v1', usersRouter);
