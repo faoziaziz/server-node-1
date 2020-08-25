@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Prasimax - GFW API",
-    "description": "Prasimax GFW API",
+    "title": "Yet Another Node.js Blogg Application API",
+    "description": "Yet Another Node.js Blogg Application API",
     "license": {
       "name": "MIT",
       "url": "https://opensource.org/licenses/MIT"
@@ -13,8 +13,8 @@
   "basePath": "/api/v1",
   "tags": [
     {
-      "name": "Location",
-      "description": "API for locations in the system"
+      "name": "Users",
+      "description": "API for users in the system"
     }
   ],
   "schemes": [
@@ -27,19 +27,19 @@
     "application/json"
   ],
   "paths": {
-    "/locations": {
+    "/users": {
       "post": {
         "tags": [
-          "Location"
+          "Users"
         ],
-        "description": "Post location ",
+        "description": "Create new user in system",
         "parameters": [
           {
-            "name": "location",
+            "name": "user",
             "in": "body",
-            "description": "Post the location, just for edge devices",
+            "description": "User that we want to create",
             "schema": {
-              "$ref": "#/definitions/Location"
+              "$ref": "#/definitions/User"
             }
           }
         ],
@@ -48,86 +48,86 @@
         ],
         "responses": {
           "200": {
-            "description": "write succses",
+            "description": "New user is created",
             "schema": {
-              "$ref": "#/definitions/Location"
+              "$ref": "#/definitions/User"
             }
           }
         }
       },
       "get": {
         "tags": [
-          "Location"
+          "Users"
         ],
-        "summary": "get ocation json from server",
+        "summary": "Get all users in system",
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Location"
+              "$ref": "#/definitions/Users"
             }
           }
         }
       }
     },
-    "/loc/{locId}": {
+    "/users/{userId}": {
       "parameters": [
         {
-          "name": "locId",
+          "name": "userId",
           "in": "path",
           "required": true,
-          "description": "locID of location that we want to find",
+          "description": "ID of user that we want to find",
           "type": "string"
         }
       ],
       "get": {
         "tags": [
-          "Location"
+          "Users"
         ],
-        "summary": "Get location with given ID",
+        "summary": "Get user with given ID",
         "responses": {
           "200": {
-            "description": "Location is found",
+            "description": "User is found",
             "schema": {
-              "$ref": "#/definitions/Location"
+              "$ref": "#/definitions/User"
             }
           }
         }
       },
       "delete": {
-        "summary": "Delete location with given ID",
+        "summary": "Delete user with given ID",
         "tags": [
-          "Location"
+          "Users"
         ],
         "responses": {
           "200": {
-            "description": "Location is deleted",
+            "description": "User is deleted",
             "schema": {
-              "$ref": "#/definitions/Location"
+              "$ref": "#/definitions/User"
             }
           }
         }
       },
       "put": {
-        "summary": "Update location with give ID",
+        "summary": "Update user with give ID",
         "tags": [
-          "Location"
+          "Users"
         ],
         "parameters": [
           {
-            "name": "location",
+            "name": "user",
             "in": "body",
-            "description": "Location with new values of properties",
+            "description": "User with new values of properties",
             "schema": {
-              "$ref": "#/definitions/Location"
+              "$ref": "#/definitions/User"
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "Location is updated",
+            "description": "User is updated",
             "schema": {
-              "$ref": "#/definitions/Location"
+              "$ref": "#/definitions/User"
             }
           }
         }
@@ -135,7 +135,7 @@
     }
   },
   "definitions": {
-    "Location": {
+    "User": {
       "required": [
         "email",
         "_id"
@@ -157,9 +157,9 @@
         }
       }
     },
-    "Locations": {
+    "Users": {
       "type": "array",
-      "$ref": "#/definitions/Location"
+      "$ref": "#/definitions/User"
     }
   }
 }
