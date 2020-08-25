@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Run index.js when the container launches
-CMD ["npm", "start"]
+CMD ["node", "bin/www"]
