@@ -12,8 +12,10 @@ import Header from "./component/Header.js";
 import Sidebar from "./component/Sidebar.js"
 import LeftSidebar from "./component/LeftSidebar"
 import Footer from "./component/Footer"
-import {Button} from "reactstrap"
 
+/* import reactstrap */
+
+import { Jumbotron, Button } from 'reactstrap';
 
 /*
   applikasi
@@ -33,30 +35,24 @@ class App extends React.Component {
 	return (
 	    <div>
 		<Header />
-		<Sidebar />
-		<Button color="primary">primary</Button>{' '}
-		<Button color="secondary">secondary</Button>{' '}
-		<Button color="success">success</Button>{' '}
-		<Button color="info">info</Button>{' '}
-		<Button color="warning">warning</Button>{' '}
-		<Button color="danger">danger</Button>{' '}
-		<Button color="link">link</Button>
+		 
+		{/* ini bagian home page jumbotron*/}
+
+		<Jumbotron>
+		    <h1 className="display-3">Hello, world!</h1>
+		    <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
+		    <hr className="my-2" />
+		    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+		    <p className="lead">
+			<Button color="primary">Learn More</Button>
+		    </p>
+		</Jumbotron>
+
+		{/* ini bagian content*/}
 		
-		<ul className="users">
-		    {users.map((user) => (
-			<li className="user">
-			    <p>
-				<strong>Name:</strong> {user.name}
-			    </p>
-			    <p>
-				<strong>Email:</strong> {user.email}
-			    </p>
-			    <p>
-				<strong>City:</strong> {user.address.city}
-			    </p>
-			</li>
-		    ))}
-		</ul>
+
+		
+
 		<LeftSidebar/>
 		<Footer/>
 	    </div>

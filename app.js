@@ -6,13 +6,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter  = require('./routes/api')
-
+/*need for body parser */
 /* for route api GFW */
 var apiGfwRouter = require('./gfw-api/routes/api')
+var bodyParser = require('body-parser')
 
 var app = express();
 
@@ -25,8 +25,11 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(logger('dev'));
+//app.use(bodyParser.json())
+//app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname,  "react-app/build")));
@@ -35,7 +38,7 @@ app.use(express.static("public"));
 app.use('/users', usersRouter);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/', indexRouter);
-app.use('/api/v1', apiRouter);
+app.use('/api/v1', apiGfwRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
