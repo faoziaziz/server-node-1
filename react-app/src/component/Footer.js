@@ -1,0 +1,15 @@
+/* this code will use for footbar */
+
+import React from 'react'
+
+const Footbar =()=>{
+    return (
+	<div>
+	    <p>ini bagian Footbar</p>
+	</div>
+    )
+
+};
+
+
+export default Footbar;

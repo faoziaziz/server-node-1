@@ -11,6 +11,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter  = require('./routes/api')
 
+/* for route api GFW */
+var apiGfwRouter = require('./gfw-api/routes/api')
+
 var app = express();
 
 /* Variable swagger */

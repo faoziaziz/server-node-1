@@ -1,0 +1,14 @@
+import React from 'react'
+
+const Header =()=>{
+    return (
+	<div>
+	    <h2>Mungkin ini bagian navbar</h2>
+	    <h1>Ini bagian header</h1>
+	    
+	</div>
+    );
+
+}
+
+export default Header;
