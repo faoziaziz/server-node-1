@@ -24,6 +24,7 @@ exports.test_json = function(req, res){
     /* 
        this for test the json body 
        this will extract all json body
-     */
+    */
+   
     res.send(req.body)
 }
