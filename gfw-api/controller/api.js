@@ -1,4 +1,9 @@
 
+/* just dependency for mongo client*/
+const {MongoClient} = require('mongodb')
+
+const uri = "mongodb+srv://faoziaziz:Azizkeren1234@cluster0.rka7w.mongodb.net/test?retryWrites=true&w=majority"
+
 
 /* just reply ok */
 
@@ -27,4 +32,27 @@ exports.test_json = function(req, res){
     */
    
     res.send(req.body)
+}
+
+exports.test_mongo = async function(req, res){
+    const client=new MongoClient(uri)
+        try {
+	await client.connect();
+	await listDatabases(client)
+
+    }
+    catch (e) {
+	console.log(e)
+    }
+    finally {
+	await client.close()
+
+    }
+    res.send("test mongo")
+
+}
+
+exports.rest_json_test = function(req, res){
+    res.json({"mantap": "pisan"})
+
 }
