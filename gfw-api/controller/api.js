@@ -38,17 +38,19 @@ exports.test_mongo = async function(req, res){
     const client=new MongoClient(uri)
         try {
 	await client.connect();
-	await listDatabases(client)
+	    await listDatabases(client)
+	     res.send("mantap")
 
     }
     catch (e) {
-	console.log(e)
+	res.send(e)
     }
     finally {
 	await client.close()
+	 //res.send("test mongo")
 
     }
-    res.send("test mongo")
+   
 
 }
 
