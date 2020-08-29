@@ -1,7 +1,7 @@
 
 /* just dependency for mongo client*/
 const {MongoClient} = require('mongodb')
-
+/*const url for access the server */
 const uri = "mongodb+srv://faoziaziz:Azizkeren1234@cluster0.rka7w.mongodb.net/test?retryWrites=true&w=majority"
 
 

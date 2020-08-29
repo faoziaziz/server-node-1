@@ -9,7 +9,7 @@
       "url": "https://opensource.org/licenses/MIT"
     }
   },
-  "host": "alexsidragon.labseni.com",
+  "host": "gfw-api-dev.prasimax.net",
   "basePath": "/api/v1",
   "tags": [
     {
