@@ -1,7 +1,6 @@
-
 /* just dependency for mongo client*/
 const {MongoClient} = require('mongodb')
-/*const url for access the server */
+
 const uri = "mongodb+srv://faoziaziz:Azizkeren1234@cluster0.rka7w.mongodb.net/test?retryWrites=true&w=majority"
 
 
@@ -35,7 +34,6 @@ exports.test_json = function(req, res){
 }
 
 exports.test_mongo = async function(req, res){
-    /* lets do to write to mongo server mlab */
     const client=new MongoClient(uri)
         try {
 	await client.connect();
@@ -44,7 +42,7 @@ exports.test_mongo = async function(req, res){
 
     }
     catch (e) {
-	res.send("error")
+	res.send("failed")
     }
     finally {
 	await client.close()
