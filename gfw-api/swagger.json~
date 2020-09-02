@@ -1,0 +1,165 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Prasimax - GFW API",
+    "description": "Prasimax GFW API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "gfw-api-dev.prasimax.net",
+  "basePath": "/api/v1",
+  "tags": [
+    {
+      "name": "Location",
+      "description": "API for locations in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/locations": {
+      "post": {
+        "tags": [
+          "Location"
+        ],
+        "description": "Post location ",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "body",
+            "description": "Post the location, just for edge devices",
+            "schema": {
+              "$ref": "#/definitions/Location"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "write succses",
+            "schema": {
+              "$ref": "#/definitions/Location"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "summary": "get ocation json from server",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Location"
+            }
+          }
+        }
+      }
+    },
+    "/loc/{locId}": {
+      "parameters": [
+        {
+          "name": "locId",
+          "in": "path",
+          "required": true,
+          "description": "locID of location that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Location"
+        ],
+        "summary": "Get location with given ID",
+        "responses": {
+          "200": {
+            "description": "Location is found",
+            "schema": {
+              "$ref": "#/definitions/Location"
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete location with given ID",
+        "tags": [
+          "Location"
+        ],
+        "responses": {
+          "200": {
+            "description": "Location is deleted",
+            "schema": {
+              "$ref": "#/definitions/Location"
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Update location with give ID",
+        "tags": [
+          "Location"
+        ],
+        "parameters": [
+          {
+            "name": "location",
+            "in": "body",
+            "description": "Location with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/Location"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Location is updated",
+            "schema": {
+              "$ref": "#/definitions/Location"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Location": {
+      "required": [
+        "email",
+        "_id"
+      ],
+      "properties": {
+        "_id": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "email": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        }
+      }
+    },
+    "Locations": {
+      "type": "array",
+      "$ref": "#/definitions/Location"
+    }
+  }
+}
