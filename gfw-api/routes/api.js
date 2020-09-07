@@ -12,20 +12,10 @@ router.get('/mantan', function(req, res, next) {
 
 /* Check for more */
 router.get("/apix", contApi.ok_reply);
-
-
 router.post("/testpost", contApi.test_post)
-
-
 router.post("/testbody", contApi.test_body)
-
-
 router.post("/testjson", contApi.test_json)
-
-
 router.post("/testmongo", contApi.test_mongo)
-
-
 router.get("/testmongo", contApi.test_mongo)
 router.get("/restjsontest", contApi.rest_json_test)
 
